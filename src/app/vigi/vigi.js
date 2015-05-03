@@ -1,12 +1,16 @@
 'use strict';
-import {Inject, Provide} from './di/src/index';
+import {Inject} from './di/src/index';
 import {BaseUrl} from './base-url-config';
 import {Rest} from './rest-service';
 
 export class Vigi {
-  constructor(@Inject(BaseUrl) baseUrl: BaseUrl){
+  constructor(
+    @Inject(BaseUrl) baseUrl: BaseUrl,
+    @Inject(Rest) rest: Rest
+  ){
     Vigi.baseUrl = baseUrl;
-
+    Vigi.rest = rest;
+    console.log(rest)
   }
 
   setBaseUrl(url){
@@ -15,8 +19,8 @@ export class Vigi {
 
   one(route, id){
     let resource = `${Vigi.baseUrl}/${route}`;
-    return new Rest(resource);
+    //return new Rest(resource);
+     Vigi.rest.url = resource;
+     return Vigi.rest
   }
-
-
 }

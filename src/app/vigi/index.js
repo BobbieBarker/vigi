@@ -2,15 +2,18 @@
 import {Injector} from './di/src/index';
 import {Vigi} from './vigi';
 import {BaseUrl} from './base-url-config';
+import {Rest} from './rest-service';
+import {RequestProvider} from './request-provider';
 
  const vigi = () => {
    let injector = new Injector([
      Vigi,
-     BaseUrl
+     BaseUrl,
+     Rest,
+     RequestProvider
      ]);
 
    let vigi = injector.get(Vigi);
-   console.log(injector);
    return {
      Vigi: vigi
    }

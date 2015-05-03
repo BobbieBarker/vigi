@@ -6,7 +6,9 @@ class MainCtrl {
 
     vigi.Vigi.setBaseUrl('http://jsonplaceholder.typicode.com');
     let status = vigi.Vigi.one('posts');
-    console.log(status)
+    status.get().then(data => {
+      console.log(data)
+    })
   }
 }
 
