@@ -18,9 +18,12 @@ export class Vigi {
   }
 
   one(route, id){
-    let resource = `${Vigi.baseUrl}/${route}`;
-    //return new Rest(resource);
+    if(_.isUndefined(id)){
+      let resource = `${Vigi.baseUrl}/${route}`;
+    }else{
+      let resource = `${Vigi.baseUrl}/${route}/${id}`;
+    }
      Vigi.rest.url = resource;
-     return Vigi.rest
+     return Vigi.rest;
   }
 }
