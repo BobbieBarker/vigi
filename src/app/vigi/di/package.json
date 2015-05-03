@@ -1,0 +1,70 @@
+{
+  "name": "di",
+  "version": "2.0.0-pre-14",
+  "description": "A DI framework.",
+  "main": "node/index.js",
+  "homepage": "https://github.com/angular/di.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular/di.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/di.js/issues"
+  },
+  "dependencies": {
+    "traceur": "0.0.33",
+    "es6-shim": "~0.11.0"
+  },
+  "devDependencies": {
+    "rtts-assert": "git+https://github.com/angular/assert",
+    "gulp": "^3.5.6",
+    "gulp-connect": "~1.0.5",
+    "gulp-traceur": "vojtajina/gulp-traceur#traceur-as-peer",
+    "gulp-git": "vojtajina/gulp-git#hacked",
+    "karma": "^0.12.1",
+    "karma-script-launcher": "~0.1.0",
+    "karma-chrome-launcher": "~0.1.2",
+    "karma-firefox-launcher": "~0.1.3",
+    "karma-phantomjs-launcher": "~0.1.2",
+    "karma-sauce-launcher": "~0.2.4",
+    "karma-jasmine": "^0.2.2",
+    "karma-requirejs": "^0.2.1",
+    "karma-traceur-preprocessor": "vojtajina/karma-traceur-preprocessor#traceur-as-peer",
+    "pipe": "angular/pipe#remove-transitive-deps",
+    "requirejs": "2.1.10",
+    "through2": "~0.4.1"
+  },
+  "scripts": {
+    "test": "karma start --single-run"
+  },
+  "author": {
+    "name": "Vojta Jína",
+    "email": "vojta.jina@gmail.com"
+  },
+  "license": "Apache-2.0",
+  "gitHead": "61d8278d2c6147bf7657d111391d4b1fd9421ce5",
+  "_id": "di@2.0.0-pre-14",
+  "_shasum": "032dacecd03a6b7a2a54812a3568884505b75d8e",
+  "_from": "di@2.0.0-pre-14",
+  "_npmVersion": "1.5.0-alpha-3",
+  "_npmUser": {
+    "name": "angularcore",
+    "email": "angular-core+npm@google.com"
+  },
+  "maintainers": [
+    {
+      "name": "vojtajina",
+      "email": "vojta.jina@gmail.com"
+    },
+    {
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
+    }
+  ],
+  "dist": {
+    "shasum": "032dacecd03a6b7a2a54812a3568884505b75d8e",
+    "tarball": "http://registry.npmjs.org/di/-/di-2.0.0-pre-14.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/di/-/di-2.0.0-pre-14.tgz"
+}
