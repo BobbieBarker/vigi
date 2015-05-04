@@ -4,13 +4,13 @@ class MainCtrl {
   constructor ($scope, vigi) {
 
     vigi.Vigi.setBaseUrl('http://jsonplaceholder.typicode.com');
-    let status = vigi.Vigi.one('posts');
-    status.get().then(data => {
+    let status = vigi.Vigi;
+    status.one('posts').get().then(data => {
       console.log(data)
     });
 
-    let testy = vigi.Vigi.one('posts', 2);
-    testy.get().then(data => {
+    let testy = vigi.Vigi
+    testy.one('posts', 2).get().then(data => {
       console.log(data)
     })
 
