@@ -12,16 +12,16 @@ export class Rest {
 
   get(){
    let request = Rest.request.create(this.path, {method: 'GET'});
+   console.log(request)
    return new Promise((resolve, reject) => {
      window.fetch(request).then((data) => data.json().then((rest) => {
-       console.log(rest)
        resolve(rest);
      }));
    });
   }
 
   post(){
-    let request = Rest.request.create(this.path, {method: 'GET'});
+    let request = Rest.request.create(this.path, {method: 'POST'});
     return new Promise((resolve, reject) => {
       window.fetch(request).then((data) => data.json().then((rest) => {
         resolve(rest);
@@ -30,7 +30,13 @@ export class Rest {
   }
 
   remove(){
-
+    let request = Rest.request.create(this.path, {method: 'DELETE'});
+    console.log(request)
+    return new Promise((resolve, reject) => {
+      window.fetch(request).then((data) => data.json().then((rest) => {
+        resolve(rest);
+      }));
+    });
   }
 
   update(){
@@ -38,6 +44,7 @@ export class Rest {
   }
 
   set url(path){
+    console.log(path)
     this.path = path;
   }
 

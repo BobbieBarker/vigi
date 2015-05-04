@@ -13,6 +13,9 @@ class MainCtrl {
     testy.get().then(data => {
       console.log(data)
     })
+
+    let blah = vigi.Vigi;
+    blah.one('posts', 3).remove()
   }
 }
 

@@ -5,7 +5,7 @@ export class RequestProvider {
 
   }
 
-  create(input, ...Init){
+  create(input, Init){
     return new Request(input, Init)
   }
 }
