@@ -1,51 +1,43 @@
 'use strict';
-import {Inject} from './di/src/index';
-import {RequestProvider} from './request-provider';
+import {Resource} from './vigi-resource';
 
-
-export class Rest {
-  constructor(@Inject(RequestProvider) requestProvider: RequestProvider) {
-
-    Rest.request = requestProvider;
-    console.log(requestProvider);
-  }
+export class Rest extends Resource {
 
   get(){
-   let request = Rest.request.create(this.path, {method: 'GET'});
-   console.log(request)
-   return new Promise((resolve, reject) => {
-     window.fetch(request).then((data) => data.json().then((rest) => {
-       resolve(rest);
-     }));
-   });
+    let resource = new Resource();
+    resource.path = this.path;
+    return new Promise((resolve, reject) => {
+      super.get(this.path).then(data => {
+        if(_.isArray(data)){
+          data = data.map((item) => {
+             return Object.assign(resource, item)
+          });
+          resolve(data);
+        }else{
+          resolve(Object.assign(resource, data));
+        }
+
+      })
+    })
   }
 
-  post(){
-    let request = Rest.request.create(this.path, {method: 'POST'});
-    return new Promise((resolve, reject) => {
-      window.fetch(request).then((data) => data.json().then((rest) => {
-        resolve(rest);
-      }));
-    });
+  post(payload){
+    return super.post(this.path, payload);
   }
 
   remove(){
-    let request = Rest.request.create(this.path, {method: 'DELETE'});
-    console.log(request)
-    return new Promise((resolve, reject) => {
-      window.fetch(request).then((data) => data.json().then((rest) => {
-        resolve(rest);
-      }));
-    });
+    return super.remove(this.path);
   }
 
-  update(){
-
+  update(payload){
+    return super.put(this.path, payload);
   }
 
   set url(path){
-    console.log(path)
     this.path = path;
   }
 
+  get url(){
+    return this.path
+  }
 }
